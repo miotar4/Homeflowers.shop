@@ -1,4 +1,4 @@
-<img width="1608" height="892" alt="ดอกไม้ Sequence drawio" src="https://github.com/user-attachments/assets/fae75d70-42bf-4dd1-9654-316a4eed6e35" /># ข้อมูลกลุ่ม
+# ข้อมูลกลุ่ม
 - ชื่อกลุ่ม Flower renger
 - จำนวนสมาชิก 5 คน
 - 67145066 สุดารัตน์ แครงกลาง หน้าที่รับผิดชอบ Project Manager
@@ -81,7 +81,7 @@
 
 # Use Case Diagram
 
-<img width="637" height="571" alt="ดอกไม้ Use Case drawio" src="https://github.com/user-attachments/assets/9d045e37-c327-4478-ad49-7b8ea6b74d1a" />
+<img width="637" height="571" alt="ดอกไม้ Use Case drawio" src="https://github.com/user-attachments/assets/0a93bb6d-618b-4cd0-b794-5e68bf8a85bf" />
 
 
 # Class Diagram
@@ -90,7 +90,8 @@
 
 # Sequence Diagram
 
-<img width="1608" height="892" alt="ดอกไม้ Sequence drawio" src="https://github.com/user-attachments/assets/614b6c58-702c-470b-985d-d1f962155c4f" />
+<img width="1608" height="892" alt="ดอกไม้ Sequence drawio" src="https://github.com/user-attachments/assets/e64811fe-a5fe-4607-86ea-a9f7664a3a80" />
+
 
 
 
