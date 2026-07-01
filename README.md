@@ -81,13 +81,18 @@
 
 # Use Case Diagram
 
-<img width="637" height="571" alt="ดอกไม้ Use Case drawio" src="https://github.com/user-attachments/assets/efc090d6-ea56-47da-b935-43094b021172" />
+<img width="637" height="571" alt="ดอกไม้ Use Case drawio" src="https://github.com/user-attachments/assets/3c870c45-950d-4a1b-bc8f-f9831b8ff99e" />
 
 # Class Diagram
 
 <img width="1431" height="953" alt="ดอกไม้ Class drawio" src="https://github.com/user-attachments/assets/dd6f95f4-381e-43f6-9737-31bccb01eac4" />
 
-
 # Sequence Diagram
 
-<img width="1608" height="892" alt="ดอกไม้ Sequence drawio" src="https://github.com/user-attachments/assets/993cd191-1b19-4c47-bfa4-199f8f73df94" />
+<img width="1608" height="892" alt="ดอกไม้ Sequence drawio" src="https://github.com/user-attachments/assets/f9690efe-dab9-44b6-9106-a283d44f0a76" />
+
+
+
+
+
+
