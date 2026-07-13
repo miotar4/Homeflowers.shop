@@ -1,0 +1,93 @@
+/* ==========================================
+   CUSTOM CSS FOR HOME FLOWERS SHOP (REACT & BOOTSTRAP)
+   ========================================== */
+
+/* Google Fonts Overrides */
+body {
+  font-family: 'Prompt', sans-serif !important;
+  background-color: #FAF8F6 !important;
+  color: #2A332E !important;
+  scroll-behavior: smooth;
+}
+
+/* Serif Headings */
+.font-serif {
+  font-family: 'Playfair Display', serif !important;
+}
+
+/* Custom spacing/shadows matching premium style */
+.navbar {
+  font-family: 'Prompt', sans-serif;
+}
+
+.nav-link {
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #6E8A78 !important;
+}
+
+/* Category cards hover */
+.card {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(110, 138, 120, 0.12) !important;
+}
+
+/* Smooth zoom-in on images (or placeholders) */
+.card-img-container {
+  overflow: hidden;
+}
+
+.card-img-container img, 
+.card-img-container div {
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-container img,
+.card:hover .card-img-container div {
+  transform: scale(1.04);
+}
+
+/* Footer stylings */
+footer {
+  font-family: 'Prompt', sans-serif;
+}
+
+footer a {
+  transition: padding-left 0.2s ease, color 0.2s ease;
+}
+
+footer a:hover {
+  color: #FAF8F6 !important;
+  padding-left: 4px;
+}
+
+/* Custom dashed border for placeholder classes */
+.border-dashed {
+  border-style: dashed !important;
+}
+
+/* CSS animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+header h1 {
+  animation: fadeInUp 0.8s ease-out;
+}
