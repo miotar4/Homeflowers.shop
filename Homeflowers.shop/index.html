@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Flowers Shop - ร้านดอกไม้แห้งและดอกไม้ประดิษฐ์</title>
+    <meta name="description" content="ร้านจำหน่ายดอกไม้แห้ง ดอกไม้ประดิษฐ์ ของขวัญ และช่อดอกไม้พรีเมียม สั่งซื้อออนไลน์ได้ง่ายๆ พร้อมจัดส่งทั่วประเทศ">
+    <!-- Google Fonts: Prompt & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Prompt:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- TOP UTILITY BAR -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <span><i class="fa-solid fa-phone"></i> 081-234-5678</span>
+                <span class="separator">|</span>
+                <span><i class="fa-solid fa-envelope"></i> contact@homeflowershop.com</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#" id="loginBtn"><i class="fa-regular fa-user"></i> เข้าสู่ระบบ / สมัครสมาชิก</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BRAND BANNER (HERO BACKGROUND) -->
+    <header class="brand-banner" id="heroBanner">
+        <div class="banner-overlay"></div>
+        <div class="banner-content">
+            <h1 class="brand-title">Home Flowers Shop</h1>
+            <p class="brand-subtitle">ยินดีต้อนรับเข้าสู่ร้านค้าดอกไม้แห้งและดอกไม้ประดิษฐ์</p>
+            <a href="#best-sellers" class="btn btn-primary">เลือกชมสินค้า</a>
+        </div>
+    </header>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <a href="#home" class="logo" id="navLogo">
+                <i class="fa-solid fa-seedling"></i> Home<span>Flowers</span>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active" id="navHome">หน้าหลัก</a></li>
+                <li><a href="#dried-flowers" class="nav-link" id="navDried">ดอกไม้แห้ง</a></li>
+                <li><a href="#artificial-flowers" class="nav-link" id="navArtificial">ดอกไม้ประดิษฐ์</a></li>
+                <li><a href="#gifts" class="nav-link" id="navGifts">ของขวัญ</a></li>
+                <li><a href="#how-to-buy" class="nav-link" id="navHowToBuy">วิธีการสั่งซื้อ</a></li>
+                <li><a href="#orders" class="nav-link" id="navOrders">คำสั่งซื้อ</a></li>
+            </ul>
+
+            <div class="nav-cart">
+                <button class="cart-trigger" id="cartTrigger" aria-label="Open Shopping Cart">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div id="homeView">
+            <!-- CATEGORY CAROUSEL SECTION ("แนะนำร้านค้า") -->
+            <section class="section categories-section" id="categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">แนะนำร้านค้า</h2>
+                    <p class="section-subtitle">เลือกชมหมวดหมู่สินค้าที่จัดสรรเป็นพิเศษสำหรับคุณ</p>
+                </div>
+
+                <div class="carousel-container">
+                    <button class="carousel-btn prev-btn" id="prevBtn" aria-label="Previous Category">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <div class="carousel-wrapper">
+                        <div class="carousel-track" id="carouselTrack">
+                            <!-- Card 1: ช่อแนะนำ -->
+                            <div class="category-card">
+                                <div class="category-image">
+                                    <img src="https://images.unsplash.com/photo-1522268759506-c038e67498c5?q=80&w=600&auto=format&fit=crop" alt="ช่อแนะนำ">
+                                    <div class="category-overlay">
+                                        <a href="#best-sellers" class="btn btn-secondary">ดูทั้งหมด</a>
+                                    </div>
+                                </div>
+                                <div class="category-info">
+                                    <h3>ช่อแนะนำ</h3>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 2: ดอกไม้แห้ง -->
+                            <div class="category-card">
+                                <div class="category-image">
+                                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=600&auto=format&fit=crop" alt="ดอกไม้แห้ง">
+                                    <div class="category-overlay">
+                                        <a href="#best-sellers" class="btn btn-secondary">ดูทั้งหมด</a>
+                                    </div>
+                                </div>
+                                <div class="category-info">
+                                    <h3>ดอกไม้แห้ง</h3>
+                                </div>
+                            </div>
+
+                            <!-- Card 3: ดอกไม้ประดิษฐ์ -->
+                            <div class="category-card">
+                                <div class="category-image">
+                                    <img src="https://images.unsplash.com/photo-1508789562574-8abbc42b7590?q=80&w=600&auto=format&fit=crop" alt="ดอกไม้ประดิษฐ์">
+                                    <div class="category-overlay">
+                                        <a href="#best-sellers" class="btn btn-secondary">ดูทั้งหมด</a>
+                                    </div>
+                                </div>
+                                <div class="category-info">
+                                    <h3>ดอกไม้ประดิษฐ์</h3>
+                                </div>
+                            </div>
+
+                            <!-- Card 4: ของขวัญ -->
+                            <div class="category-card">
+                                <div class="category-image">
+                                    <img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=600&auto=format&fit=crop" alt="ของขวัญ">
+                                    <div class="category-overlay">
+                                        <a href="#best-sellers" class="btn btn-secondary">ดูทั้งหมด</a>
+                                    </div>
+                                </div>
+                                <div class="category-info">
+                                    <h3>ของขวัญ</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next-btn" id="nextBtn" aria-label="Next Category">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- BEST SELLERS SECTION ("รูปแบบช่อขายดี") -->
+        <section class="section best-sellers-section" id="best-sellers">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">รูปแบบช่อขายดี</h2>
+                    <p class="section-subtitle">สินค้าขายดีที่ลูกค้าชื่นชอบและสั่งซื้อมากที่สุด</p>
+                </div>
+
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-id="1" data-name="ช่อดอกลาเวนเดอร์แห้งพรีเมียม" data-price="450" data-img="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=600&auto=format&fit=crop">
+                        <div class="product-badge">ขายดี</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=600&auto=format&fit=crop" alt="ช่อดอกลาเวนเดอร์แห้ง">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">ดอกไม้แห้ง</span>
+                            <h3 class="product-title">ช่อดอกลาเวนเดอร์แห้งพรีเมียม</h3>
+                            <div class="product-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>(24 รีวิว)</span>
+                            </div>
+                            <div class="product-footer">
+                                <span class="product-price">฿450</span>
+                                <button class="btn-add-to-cart add-to-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card" data-id="2" data-name="ช่อดอกทิวลิปประดิษฐ์สไตล์เกาหลี" data-price="390" data-img="h">
+                        <div class="product-badge badge-new">ใหม่</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1589244159943-460088ed5c92?q=80&w=600&auto=format&fit=crop" alt="ช่อดอกทิวลิปประดิษฐ์">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">ดอกไม้ประดิษฐ์</span>
+                            <h3 class="product-title">ช่อดอกทิวลิปประดิษฐ์สไตล์เกาหลี</h3>
+                            <div class="product-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <span>(18 รีวิว)</span>
+                            </div>
+                            <div class="product-footer">
+                                <span class="product-price">฿390</span>
+                                <button class="btn-add-to-cart add-to-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card" data-id="3" data-name="เซ็ตกล่องของขวัญดอกไม้กุหลาบและเทียนหอม" data-price="750" data-img="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=600&auto=format&fit=crop">
+                        <div class="product-badge">แนะนํา</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=600&auto=format&fit=crop" alt="เซ็ตของขวัญกุหลาบ">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">ของขวัญ</span>
+                            <h3 class="product-title">เซ็ตกล่องของขวัญดอกไม้กุหลาบและเทียนหอม</h3>
+                            <div class="product-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star text-amber-500"></i>
+                                <span>(32 รีวิว)</span>
+                            </div>
+                            <div class="product-footer">
+                                <span class="product-price">฿750</span>
+                                <button class="btn-add-to-cart add-to-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card" data-id="4" data-name="ช่อไฮเดรนเยียแห้งแนววินเทจ" data-price="590" data-img="">
+                        <div class="product-badge">ขายดี</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=600&auto=format&fit=crop" alt="ช่อไฮเดรนเยียแห้ง">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">ดอกไม้แห้ง</span>
+                            <h3 class="product-title">ช่อไฮเดรนเยียแห้งแนววินเทจ</h3>
+                            <div class="product-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <span>(15 รีวิว)</span>
+                            </div>
+                            <div class="product-footer">
+                                <span class="product-price">฿590</span>
+                                <button class="btn-add-to-cart add-to-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INFO SECTION (วิธีการสั่งซื้อ) -->
+        <section class="section info-section" id="how-to-buy">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">วิธีการสั่งซื้อง่ายๆ ใน 3 ขั้นตอน</h2>
+                    <p class="section-subtitle">การซื้อดอกไม้ตกแต่งบ้านหรือของขวัญพิเศษไม่เคยง่ายเท่านี้มาก่อน</p>
+                </div>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fa-solid fa-basket-shopping"></i></div>
+                        <h3>1. เลือกสินค้าใส่ตะกร้า</h3>
+                        <p>เลือกสรรช่อดอกไม้แห้งหรือดอกไม้ประดิษฐ์ที่คุณประทับใจ แล้วกดเพิ่มลงในตะกร้าสินค้า</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fa-regular fa-credit-card"></i></div>
+                        <h3>2. ชำระเงินสะดวก</h3>
+                        <p>ทำการตรวจสอบรายการสินค้า กรอกข้อมูลการจัดส่ง และเลือกช่องทางชำระเงินที่ต้องการ</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                        <h3>3. รอรับดอกไม้ที่บ้าน</h3>
+                        <p>จัดส่งห่ออย่างแน่นหนา เพื่อส่งมอบถึงมือคุณในสภาพที่สมบูรณ์ที่สุดอย่างรวดเร็ว</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div><!-- end of homeView -->
+
+        <!-- WIREFRAME VIEW: ดอกไม้แห้ง -->
+        <div id="driedFlowersView" class="wireframe-view container">
+            <div class="wireframe-title-container">
+                <span class="wireframe-header-text">หน้าสินค้า</span>
+            </div>
+            <div class="wf-main-layout">
+                <aside class="wf-sidebar">
+                    <div class="wf-search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="ค้นหา...">
+                    </div>
+                    <button class="wf-filter-btn">จัดส่งฟรี</button>
+                    <button class="wf-filter-btn">แนะนำ Custom</button>
+                </aside>
+                <div class="wf-content-area">
+                    <div class="wf-page-description-link">
+                        <a href="#">คำอธิบาย ดอกไม้แห้งดีอย่างไร/คืออะไร</a>
+                    </div>
+                    <div class="wf-product-grid">
+                        <!-- Product Card 1 -->
+                        <div class="wf-product-card" data-id="df-1" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 2 -->
+                        <div class="wf-product-card" data-id="df-2" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 3 -->
+                        <div class="wf-product-card" data-id="df-3" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 4 -->
+                        <div class="wf-product-card" data-id="df-4" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 5 -->
+                        <div class="wf-product-card" data-id="df-5" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 6 -->
+                        <div class="wf-product-card" data-id="df-6" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WIREFRAME VIEW: ดอกไม้ประดิษฐ์ -->
+        <div id="artificialFlowersView" class="wireframe-view container">
+            <div class="wireframe-title-container">
+                <span class="wireframe-header-text">หน้าสินค้า</span>
+            </div>
+            <div class="wf-main-layout">
+                <aside class="wf-sidebar">
+                    <div class="wf-search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="ค้นหา...">
+                    </div>
+                    <button class="wf-filter-btn">จัดส่งฟรี</button>
+                    <button class="wf-filter-btn">แนะนำ Custom</button>
+                </aside>
+                <div class="wf-content-area">
+                    <div class="wf-page-description-link">
+                        <a href="#">คำอธิบาย ดอกไม้ประดิษฐ์ดีอย่างไร/คืออะไร</a>
+                    </div>
+                    <div class="wf-product-grid">
+                        <!-- Product Card 1 -->
+                        <div class="wf-product-card" data-id="af-1" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 2 -->
+                        <div class="wf-product-card" data-id="af-2" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 3 -->
+                        <div class="wf-product-card" data-id="af-3" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 4 -->
+                        <div class="wf-product-card" data-id="af-4" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 5 -->
+                        <div class="wf-product-card" data-id="af-5" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 6 -->
+                        <div class="wf-product-card" data-id="af-6" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WIREFRAME VIEW: ของขวัญ -->
+        <div id="giftsView" class="wireframe-view container">
+            <div class="wireframe-title-container">
+                <span class="wireframe-header-text">หน้าสินค้า</span>
+            </div>
+            <div class="wf-main-layout">
+                <aside class="wf-sidebar">
+                    <div class="wf-search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="ค้นหา...">
+                    </div>
+                    <button class="wf-filter-btn">ตุ๊กตาหมี</button>
+                    <button class="wf-filter-btn">เทียนหอม</button>
+                    <button class="wf-filter-btn">กล่อง/การ์ด</button>
+                    <button class="wf-filter-btn">การ์ด</button>
+                </aside>
+                <div class="wf-content-area">
+                    <div class="wf-page-description-link">
+                        <a href="#">ของขวัญสุดพิเศษ</a>
+                    </div>
+                    <div class="wf-product-grid">
+                        <!-- Product Card 1: Teddy, 200 -->
+                        <div class="wf-product-card" data-id="gf-1" data-name="Teddy" data-price="200" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Teddy</h3>
+                                <span class="wf-product-price">200 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 2: Basic 1 -->
+                        <div class="wf-product-card" data-id="gf-2" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 3: Basic 1 -->
+                        <div class="wf-product-card" data-id="gf-3" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 4: Basic 1 -->
+                        <div class="wf-product-card" data-id="gf-4" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 5: Basic 1 -->
+                        <div class="wf-product-card" data-id="gf-5" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                        <!-- Product Card 6: Basic 1 -->
+                        <div class="wf-product-card" data-id="gf-6" data-name="Basic 1" data-price="1000" data-img="">
+                            <div class="wf-image-placeholder">
+                                <span>Image Placeholder (4:3)</span>
+                            </div>
+                            <div class="wf-product-info">
+                                <h3 class="wf-product-title">Basic 1</h3>
+                                <span class="wf-product-price">1,000 ฿</span>
+                            </div>
+                            <button class="wf-add-to-cart-btn add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> หยิบใส่ตะกร้า</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#home" class="logo" id="footLogo">
+                    <i class="fa-solid fa-seedling"></i> Home<span>Flowers</span>
+                </a>
+                <p>เราคัดสรรดอกไม้แห้งและดอกไม้ประดิษฐ์คุณภาพดีเยี่ยม เพื่อสร้างบรรยากาศอบอุ่นและมีชีวิตชีวาให้บ้านและงานสำคัญของคุณ</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Line"><i class="fa-brands fa-line"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>หมวดหมู่สินค้า</h3>
+                <ul>
+                    <li><a href="#home" class="footer-nav-link" id="footHome">ช่อแนะนำ</a></li>
+                    <li><a href="#dried-flowers" class="footer-nav-link" id="footDried">ดอกไม้แห้ง</a></li>
+                    <li><a href="#artificial-flowers" class="footer-nav-link" id="footArtificial">ดอกไม้ประดิษฐ์</a></li>
+                    <li><a href="#gifts" class="footer-nav-link" id="footGifts">ของขวัญ / ของชำร่วย</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>ช่วยเหลือ & ข้อมูล</h3>
+                <ul>
+                    <li><a href="#how-to-buy">วิธีการสั่งซื้อ</a></li>
+                    <li><a href="#">นโยบายการคืนสินค้า</a></li>
+                    <li><a href="#">คำถามที่พบบ่อย (FAQs)</a></li>
+                    <li><a href="#">ติดตามการจัดส่ง</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>ติดต่อเรา</h3>
+                <p><i class="fa-solid fa-location-dot"></i> 123/45 ถนนดอกไม้ทอง กรุงเทพมหานคร 10110</p>
+                <p><i class="fa-solid fa-phone"></i> 081-234-5678</p>
+                <p><i class="fa-solid fa-envelope"></i> info@homeflowershop.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 Home Flowers Shop. All Rights Reserved. ออกแบบและพัฒนาเพื่อการเรียนรู้</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SHOPPING CART SLIDE DRAWER -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+        <div class="cart-drawer-content">
+            <div class="cart-header">
+                <h3>ตะกร้าสินค้าของคุณ</h3>
+                <button class="cart-close" id="cartCloseBtn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cart-items" id="cartItemsContainer">
+                <!-- Empty cart state by default -->
+                <div class="empty-cart-message">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <p>ยังไม่มีสินค้าในตะกร้า</p>
+                </div>
+            </div>
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>ราคารวมทั้งหมด:</span>
+                    <span id="cartTotalAmount">฿0</span>
+                </div>
+                <button class="btn btn-primary btn-block checkout-btn">ดำเนินการสั่งซื้อ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIN / REGISTER MODAL -->
+    <div class="modal" id="loginModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-tabs">
+                <button class="modal-tab-btn active" id="tabLogin">เข้าสู่ระบบ</button>
+                <button class="modal-tab-btn" id="tabRegister">สมัครสมาชิก</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="modal-form active">
+                <div class="form-group">
+                    <label for="loginEmail">อีเมล / เบอร์โทรศัพท์</label>
+                    <input type="text" id="loginEmail" placeholder="ระบุอีเมลหรือเบอร์โทรศัพท์ของคุณ" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">รหัสผ่าน</label>
+                    <input type="password" id="loginPassword" placeholder="ระบุรหัสผ่าน" required autocomplete="current-password">
+                </div>
+                <div class="form-actions">
+                    <a href="#" class="forgot-password">ลืมรหัสผ่าน?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">เข้าสู่ระบบ</button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="modal-form">
+                <div class="form-group">
+                    <label for="regName">ชื่อ - นามสกุล</label>
+                    <input type="text" id="regName" placeholder="ระบุชื่อ-นามสกุลของคุณ" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">อีเมล</label>
+                    <input type="email" id="regEmail" placeholder="ระบุอีเมลของคุณ" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="regPhone">เบอร์โทรศัพท์</label>
+                    <input type="tel" id="regPhone" placeholder="ระบุเบอร์โทรศัพท์" required autocomplete="tel">
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">รหัสผ่าน</label>
+                    <input type="password" id="regPassword" placeholder="รหัสผ่าน (อย่างน้อย 6 ตัวอักษร)" required autocomplete="new-password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">สมัครสมาชิก</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ORDERS POPUP MODAL -->
+    <div class="modal" id="ordersModal">
+        <div class="modal-overlay" id="ordersModalOverlay"></div>
+        <div class="modal-content orders-modal-content">
+            <button class="modal-close" id="ordersCloseBtn" aria-label="Close Orders"><i class="fa-solid fa-xmark"></i></button>
+
+            <!-- Orders List View -->
+            <div id="ordersListView">
+                <h2 class="orders-modal-title">คำสั่งซื้อ</h2>
+                <div class="orders-table-wrapper">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>รายละเอียด</th>
+                                <th>สถานะ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="order-row" data-order="1">
+                                <td>#1234567890</td>
+                                <td>Basic 1,<br>Custom 1</td>
+                                <td>กำลังจัดส่ง/<br>สำเร็จแล้ว</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Order Detail View -->
+            <div id="orderDetailView" style="display:none;">
+                <h2 class="orders-modal-title">รายละเอียดคำสั่งซื้อ</h2>
+
+                <div class="order-detail-section">
+                    <h3 class="order-detail-heading">Order details</h3>
+                    <table class="order-detail-table">
+                        <tbody>
+                            <tr>
+                                <td>รายละเอียดสินค้า</td>
+                                <td class="text-right">ยอดรวม</td>
+                            </tr>
+                            <tr>
+                                <td>Basic 1</td>
+                                <td class="text-right">1000 ฿</td>
+                            </tr>
+                            <tr>
+                                <td>Custom 1</td>
+                                <td class="text-right">650 ฿</td>
+                            </tr>
+                            <tr>
+                                <td>ค่าจัดส่ง (ems)</td>
+                                <td class="text-right">100 ฿</td>
+                            </tr>
+                            <tr>
+                                <td>Payment method/Promptpay (QRcode)</td>
+                                <td class="text-right">Promptpay (QRcode)</td>
+                            </tr>
+                            <tr class="order-total-row">
+                                <td><strong>Total:</strong></td>
+                                <td class="text-right"><strong>1750 ฿</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="order-detail-section">
+                    <h3 class="order-detail-heading">Customer details</h3>
+                    <p>ชื่อจริง</p>
+                    <p>ที่อยู่</p>
+                    <p>เบอร์โทร</p>
+                </div>
+
+                <div class="order-detail-section order-tracking-section">
+                    <div class="order-tracking-row">
+                        <span>เลขพัสดุ (Tracking Number)</span>
+                        <span class="tracking-number">ED123456789TH</span>
+                    </div>
+                </div>
+
+                <button class="orders-back-btn" id="ordersBackBtn"><i class="fa-solid fa-arrow-left"></i> กลับไปรายการคำสั่งซื้อ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Script -->
+    <script src="script.js"></script>
+</body>
+</html>
