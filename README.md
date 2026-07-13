@@ -79,7 +79,7 @@
 | **Frontend** | HTML / CSS / JavaScript / React / Bootstrap |
 | **Backend** | Node.js |
 | **Database** | LocalStorage |
-| **Design Tool** | Figma | Draw.io |
+| **Design Tool** | Figma / Draw.io |
 | **Version Control** | GitHub |
 
 ---
@@ -116,14 +116,231 @@
 ## 📊 Diagram
 
 ### Use Case Diagram
-<img width="637" height="571" alt="ดอกไม้ Use Case Diagram" src="https://github.com/user-attachments/assets/0a93bb6d-618b-4cd0-b794-5e68bf8a85bf" />
+```mermaid
+flowchart LR
+
+%% Actors
+Guest([Guest])
+Member([Member])
+Staff([Staff])
+Admin([Admin])
+System([System])
+
+%% Use Cases
+Search([Search product])
+Filter([Filter product])
+Detail([See product details])
+Login([Register / Login])
+Auth([Authentication])
+Profile([Manage personal info])
+Edit([Edit personal info])
+Cart([Manage cart])
+Total([Calculate total price])
+Order([Order product])
+Delivery([Select delivery])
+Address([Select address])
+PaymentMethod([Select payment method])
+Payment([Payment])
+History([See order history])
+Cancel([Cancel order])
+
+ManageProduct([Manage product])
+ManageOrder([Manage order])
+ManageMember([Manage member])
+ManagePayment([Manage payment])
+
+Report([See report & dashboard])
+ManageStaff([Manage staff])
+
+%% Relations
+Guest --> Search
+Guest --> Detail
+Guest --> Login
+
+Member --> Search
+Member --> Detail
+Member --> Profile
+Member --> Cart
+Member --> Order
+Member --> Payment
+Member --> History
+Member --> Cancel
+
+Login -. include .-> Auth
+Profile -. include .-> Edit
+Cart -. include .-> Total
+
+Order -. include .-> Delivery
+Order -. include .-> Address
+Order -. include .-> PaymentMethod
+
+Payment --> History
+
+Staff --> ManageProduct
+Staff --> ManageOrder
+Staff --> ManageMember
+Staff --> ManagePayment
+
+Admin --> Report
+Admin --> ManageStaff
+
+System --> Total
+```
 
 ### Class Diagram
-<img width="1431" height="953" alt="ดอกไม้ Class Diagram" src="https://github.com/user-attachments/assets/dd6f95f4-381e-43f6-9737-31bccb01eac4" />
+```mermaid
+classDiagram
+
+class User{
++int userId
++string name
++string email
++string password
++login()
++logout()
+}
+
+class Member{
++viewOrderHistory()
+}
+
+class Staff{
++manageProduct()
++manageOrder()
++manageMember()
++managePayment()
+}
+
+class Admin{
++manageStaff()
++viewReport()
+}
+
+class Address{
++int addressId
++string recipientName
++string phone
+}
+
+class Category{
++int categoryId
++string categoryName
+}
+
+class Product{
++int productId
++string productName
++decimal price
++int stock
+}
+
+class Inventory{
++int inventoryId
++int quantity
+}
+
+class Cart{
++int cartId
++addItem()
++removeItem()
++clear()
+}
+
+class CartItem{
++int quantity
++decimal price
+}
+
+class Order{
++int orderId
++decimal totalAmount
++string status
++calculateTotal()
++cancelOrder()
+}
+
+class OrderItem{
++int quantity
++decimal subtotal
+}
+
+class Payment{
++int paymentId
++string paymentMethod
++decimal amount
++processPayment()
+}
+
+User <|-- Member
+User <|-- Staff
+Staff <|-- Admin
+
+User "1" --> "1..*" Address
+Category "1" --> "*" Product
+Product "1" --> "1" Inventory
+
+Member "1" --> "0..1" Cart
+Cart "1" --> "1..*" CartItem
+
+CartItem "*" --> "1" Product
+
+Member "1" --> "*" Order
+Order "1" --> "1..*" OrderItem
+OrderItem "*" --> "1" Product
+
+Order "1" --> "1" Payment
+Order --> Address
+```
 
 ### Sequence Diagram
-<img width="1608" height="892" alt="ดอกไม้ Sequence Diagram" src="https://github.com/user-attachments/assets/e64811fe-a5fe-4607-86ea-a9f7664a3a80" />
+```mermaid
+sequenceDiagram
 
+actor Customer
+
+participant Web as หน้าเว็บ
+participant Product as ระบบสินค้า
+participant Cart as ระบบตะกร้าสินค้า
+participant Order as ระบบสั่งซื้อ
+participant Payment as ระบบชำระเงิน
+participant DB as ฐานข้อมูล
+
+%% ค้นหาสินค้า
+Customer->>Web: ค้นหาสินค้า
+Web->>Product: ส่งคำค้นหา
+Product->>DB: ดึงข้อมูลสินค้า
+DB-->>Product: รายการสินค้า
+Product-->>Web: แสดงผลสินค้า
+Web-->>Customer: แสดงผลลัพธ์
+
+%% ดูรายละเอียด
+Customer->>Web: เลือกสินค้า
+Web->>Product: ขอรายละเอียดสินค้า
+Product->>DB: ดึงรายละเอียด
+DB-->>Product: ข้อมูลสินค้า
+Product-->>Web: รายละเอียดสินค้า
+Web-->>Customer: แสดงรายละเอียด
+
+%% เพิ่มลงตะกร้า
+Customer->>Web: เพิ่มลงตะกร้า
+Web->>Cart: เพิ่มสินค้า
+Cart->>DB: บันทึกตะกร้า
+DB-->>Cart: สำเร็จ
+Cart-->>Web: เพิ่มสำเร็จ
+Web-->>Customer: แจ้งผล
+
+%% ชำระเงิน
+Customer->>Web: ชำระเงิน
+Web->>Order: สร้างคำสั่งซื้อ
+Order->>Cart: ดึงสินค้า
+Cart-->>Order: รายการสินค้า
+Order->>Payment: ดำเนินการชำระเงิน
+Payment-->>Order: ชำระสำเร็จ
+Order->>DB: บันทึกคำสั่งซื้อ
+DB-->>Order: สำเร็จ
+Order-->>Web: ยืนยันคำสั่งซื้อ
+Web-->>Customer: แสดงเลขคำสั่งซื้อ
+```
 ---
 
 <div align="center">
