@@ -302,52 +302,146 @@ Order --> Address
 
 ```mermaid
 sequenceDiagram
+    actor Member
 
-actor Customer
+    participant Web as หน้าเว็บ
+    participant Search as ระบบค้นหาสินค้า
+    participant Product as ระบบคลังสินค้า
+    participant Cart as ระบบตะกร้าสินค้า
+    participant Order as ระบบสั่งซื้อสินค้า
+    participant Payment as ระบบชำระเงิน
+    participant DB as ฐานข้อมูล
+    participant Post as ไปรษณีย์ไทย
 
-participant Web as หน้าเว็บ
-participant Product as ระบบสินค้า
-participant Cart as ระบบตะกร้าสินค้า
-participant Order as ระบบสั่งซื้อ
-participant Payment as ระบบชำระเงิน
-participant DB as ฐานข้อมูล
+    %% ค้นหาสินค้า
+    Member->>Web: กรอกคำค้นหา
+    Web->>Search: ส่งคำค้นหา
+    Search->>Product: ค้นหาสินค้า
+    Product->>DB: ดึงข้อมูลสินค้า
+    DB-->>Product: ส่งข้อมูลสินค้า
+    Product-->>Search: ส่งข้อมูลสินค้า
+    Search-->>Web: แสดงรายการสินค้า
 
-%% ค้นหาสินค้า
-Customer->>Web: ค้นหาสินค้า
-Web->>Product: ส่งคำค้นหา
-Product->>DB: ดึงข้อมูลสินค้า
-DB-->>Product: รายการสินค้า
-Product-->>Web: แสดงผลสินค้า
-Web-->>Customer: แสดงผลลัพธ์
+    %% เลือกสินค้า
+    Member->>Web: เลือกสินค้าที่ต้องการ
+    Web->>Product: ขอรายละเอียดสินค้า
+    Product->>DB: ดึงรายละเอียดสินค้า
+    DB-->>Product: ส่งรายละเอียดสินค้า
+    Product-->>Web: แสดงรายละเอียดสินค้า
 
-%% ดูรายละเอียด
-Customer->>Web: เลือกสินค้า
-Web->>Product: ขอรายละเอียดสินค้า
-Product->>DB: ดึงรายละเอียด
-DB-->>Product: ข้อมูลสินค้า
-Product-->>Web: รายละเอียดสินค้า
-Web-->>Customer: แสดงรายละเอียด
+    %% เพิ่มลงตะกร้า
+    Member->>Web: กดปุ่มเพิ่มลงตะกร้า
+    Web->>Cart: เพิ่มสินค้าลงตะกร้า
+    Cart->>DB: บันทึกข้อมูลตะกร้า
+    DB-->>Cart: ยืนยันการบันทึก
+    Cart-->>Web: ยืนยันการเพิ่มสินค้า
 
-%% เพิ่มลงตะกร้า
-Customer->>Web: เพิ่มลงตะกร้า
-Web->>Cart: เพิ่มสินค้า
-Cart->>DB: บันทึกตะกร้า
-DB-->>Cart: สำเร็จ
-Cart-->>Web: เพิ่มสำเร็จ
-Web-->>Customer: แจ้งผล
+    %% ชำระเงิน
+    Member->>Web: กดปุ่มชำระเงิน
+    Web->>Order: สร้างคำสั่งซื้อ
+    Order->>Cart: ดึงข้อมูลตะกร้า
+    Cart-->>Order: ข้อมูลตะกร้า
+    Order->>Payment: สร้างรายการชำระเงิน
+    Payment->>Payment: ตรวจสอบการชำระเงิน
+    Payment-->>Order: ผลการชำระเงิน
+    Order->>DB: บันทึกคำสั่งซื้อ
+    DB-->>Order: ยืนยันการบันทึก
+    Order-->>Web: ยืนยันคำสั่งซื้อสำเร็จ
 
-%% ชำระเงิน
-Customer->>Web: ชำระเงิน
-Web->>Order: สร้างคำสั่งซื้อ
-Order->>Cart: ดึงสินค้า
-Cart-->>Order: รายการสินค้า
-Order->>Payment: ดำเนินการชำระเงิน
-Payment-->>Order: ชำระสำเร็จ
-Order->>DB: บันทึกคำสั่งซื้อ
-DB-->>Order: สำเร็จ
-Order-->>Web: ยืนยันคำสั่งซื้อ
-Web-->>Customer: แสดงเลขคำสั่งซื้อ
+    %% ประวัติการสั่งซื้อ
+    Member->>Web: ประวัติการสั่งซื้อ
+    Web->>Order: ส่งคำขอประวัติการสั่งซื้อ
+    Order->>DB: ดึงประวัติการสั่งซื้อ
+    DB-->>Order: ส่งประวัติการสั่งซื้อ
+    Order-->>Web: แสดงประวัติการสั่งซื้อ
+
+    opt สถานะการจัดส่ง
+        Member->>Web: สถานะการจัดส่ง
+        Web->>Order: ส่งคำขอสถานะการจัดส่ง
+        Order->>Post: ดึงสถานะการจัดส่ง
+        Post-->>Order: ส่งสถานะการจัดส่ง
+        Order-->>Web: แสดงสถานะการจัดส่ง
+    end
 ```
+
+```mermaid
+sequenceDiagram
+    actor Staff
+
+    participant Web as หน้าเว็บ
+    participant Product as ระบบคลังสินค้า
+    participant Order as ระบบสั่งซื้อสินค้า
+    participant DB as ฐานข้อมูล
+
+    %% จัดการคลังสินค้า
+    Staff->>Web: เลือกดูสินค้าในคลัง
+    Web->>Product: ส่งคำขอข้อมูลสินค้า
+    Product->>DB: ดึงข้อมูลสต็อก
+    DB-->>Product: ส่งข้อมูลสต็อก
+    Product-->>Web: แสดงรายการสินค้า
+
+    Staff->>Web: อัปเดตจำนวนสินค้า
+    Web->>Product: ส่งจำนวนที่แก้ไข
+    Product->>DB: อัปเดตจำนวนสินค้า
+    DB-->>Product: ยืนยันการอัปเดต
+    Product-->>Web: แสดงสถานะการอัปเดต
+
+    %% จัดการคำสั่งซื้อ
+    Staff->>Web: ดูคำสั่งซื้อของลูกค้า
+    Web->>Order: ขอรายการคำสั่งซื้อ
+    Order->>DB: ดึงข้อมูลคำสั่งซื้อ
+    DB-->>Order: ส่งรายการคำสั่งซื้อ
+    Order-->>Web: แสดงรายการคำสั่งซื้อ
+
+    opt อัปเดตสถานะคำสั่งซื้อ
+        Staff->>Web: อัปเดต/ลบคำสั่งซื้อ
+        Web->>Order: ส่งคำสั่ง
+        Order->>DB: อัปเดตข้อมูล
+        DB-->>Order: ยืนยัน
+        Order-->>Web: แสดงสถานะ
+    end
+
+    opt เพิ่มเลข Tracking
+        Staff->>Web: ระบุเลข Tracking
+        Web->>Order: ส่งข้อมูลการจัดส่ง
+        Order->>DB: บันทึกเลข Tracking
+        DB-->>Order: ยืนยันการบันทึก
+        Order-->>Web: แสดงสถานะการอัปเดต
+    end
+```
+
+```mermaid
+sequenceDiagram
+    actor Admin
+
+    participant Web as หน้าเว็บ
+    participant Product as ระบบคลังสินค้า
+    participant Order as ระบบสั่งซื้อสินค้า
+    participant Member as ระบบข้อมูลสมาชิก
+    participant DB as ฐานข้อมูล
+
+    %% จัดการสินค้า
+    Admin->>Web: เพิ่ม/แก้ไข/ลบ สินค้า
+    Web->>Product: ส่งคำสั่งจัดการสินค้า
+    Product->>DB: บันทึก/แก้ไข/ลบสินค้า
+    DB-->>Product: ยืนยันการจัดการสินค้า
+    Product-->>Web: แสดงผลลัพธ์
+
+    %% รายงาน
+    Admin->>Web: เลือกดูรายงาน
+    Web->>Order: ส่งคำขอข้อมูลรายงาน
+    Order->>DB: ดึงข้อมูลประวัติการสั่งซื้อ
+    DB-->>Order: ส่งข้อมูลยอดขาย
+    Order-->>Web: คำนวณและสรุปรายงาน
+
+    %% จัดการสมาชิก
+    Admin->>Web: เพิ่ม/แก้ไข/ลบ สมาชิก
+    Web->>Member: ส่งคำสั่งจัดการสมาชิก
+    Member->>DB: บันทึก/แก้ไข/ลบ สมาชิก
+    DB-->>Member: ยืนยันการจัดการสมาชิก
+    Member-->>Web: แสดงผลลัพธ์
+```
+
 
 ---
 # Data Schema (JSON)
