@@ -138,74 +138,80 @@
 ### Use Case Diagram
 
 ```mermaid
+
 flowchart LR
+    %% Actors
+    Guest(("Guest"))
+    Member(("Member"))
+    Staff(("Staff"))
+    Admin(("Admin"))
+    System(("System"))
 
-%% Actors
-Guest([Guest])
-Member([Member])
-Staff([Staff])
-Admin([Admin])
-System([System])
+    subgraph Homeflowers.shop["Homeflowers.shop"]
+        UC_Search["Search product"]
+        UC_Filter["Filter product"]
+        UC_Details["See product details"]
+        UC_Auth["Authentication"]
+        UC_RegLog["Register/Login"]
+        UC_ManagePersonal["Manage personal info"]
+        UC_EditPersonal["Edit personal info"]
+        UC_ManageCart["Manage cart"]
+        UC_CalcPrice["Calculate total price"]
+        UC_Order["Order product"]
+        UC_SelDelivery["Select delivery"]
+        UC_SelAddress["Select address"]
+        UC_SelPayment["Select payment method"]
+        UC_Payment["Payment"]
+        UC_OrderHistory["See order history"]
+        UC_CancelOrder["Cancel order"]
+        
+        UC_ManageProd["Manage product"]
+        UC_ManageOrder["Manage order"]
+        UC_ManageMember["Manage member"]
+        UC_ManagePay["Manage payment"]
+        UC_ReportDash["See report and dashboard"]
+        UC_ManageStaff["Manage staff"]
+    end
 
-%% Use Cases
-Search([Search product])
-Filter([Filter product])
-Detail([See product details])
-Login([Register / Login])
-Auth([Authentication])
-Profile([Manage personal info])
-Edit([Edit personal info])
-Cart([Manage cart])
-Total([Calculate total price])
-Order([Order product])
-Delivery([Select delivery])
-Address([Select address])
-PaymentMethod([Select payment method])
-Payment([Payment])
-History([See order history])
-Cancel([Cancel order])
+    %% Actor Relationships
+    Member --> Guest
+    Admin --> Staff
 
-ManageProduct([Manage product])
-ManageOrder([Manage order])
-ManageMember([Manage member])
-ManagePayment([Manage payment])
+    %% Guest Interactions
+    Guest --- UC_Search
+    Guest --- UC_Details
 
-Report([See report & dashboard])
-ManageStaff([Manage staff])
+    %% Member Interactions
+    Member --- UC_RegLog
+    Member --- UC_ManagePersonal
+    Member --- UC_ManageCart
+    Member --- UC_Order
+    Member --- UC_Payment
+    Member --- UC_OrderHistory
+    Member --- UC_CancelOrder
 
-%% Relations
-Guest --> Search
-Guest --> Detail
-Guest --> Login
+    %% Staff Interactions
+    Staff --- UC_ManageProd
+    Staff --- UC_ManageOrder
+    Staff --- UC_ManageMember
+    Staff --- UC_ManagePay
 
-Member --> Search
-Member --> Detail
-Member --> Profile
-Member --> Cart
-Member --> Order
-Member --> Payment
-Member --> History
-Member --> Cancel
+    %% Admin Interactions
+    Admin --- UC_ReportDash
+    Admin --- UC_ManageStaff
 
-Login -. include .-> Auth
-Profile -. include .-> Edit
-Cart -. include .-> Total
+    %% System Interactions
+    System --- UC_CalcPrice
 
-Order -. include .-> Delivery
-Order -. include .-> Address
-Order -. include .-> PaymentMethod
-
-Payment --> History
-
-Staff --> ManageProduct
-Staff --> ManageOrder
-Staff --> ManageMember
-Staff --> ManagePayment
-
-Admin --> Report
-Admin --> ManageStaff
-
-System --> Total
+    %% Use Case Relationships
+    UC_Filter .->|"<<extend>>"| UC_Search
+    UC_RegLog .->|"<<include>>"| UC_Auth
+    UC_ManagePersonal .->|"<<include>>"| UC_EditPersonal
+    UC_ManageCart .->|"<<include>>"| UC_CalcPrice
+    UC_Order .->|"<<include>>"| UC_SelDelivery
+    UC_Order .->|"<<include>>"| UC_SelAddress
+    UC_Order .->|"<<include>>"| UC_SelPayment
+    UC_Payment -->|"<<include>>"| UC_OrderHistory
 ```
 
 ### Class Diagram
@@ -213,106 +219,167 @@ System --> Total
 ```mermaid
 
 classDiagram
+    class User {
+        -int userId
+        -string name
+        -string email
+        -string password
+        -string phone
+        -datetime createdAt
+        -datetime updatedAt
+        +register() boolean
+        +login(email, password) boolean
+        +logout() boolean
+        +updateProfile() boolean
+    }
 
-class User{
-+int userId
-+string name
-+string email
-+string password
-+login()
-+logout()
-}
+    class Staff {
+        -int staffId
+        -int userId
+        -string role
+        +manageProduct() boolean
+        +manageOrder() boolean
+        +manageMember() boolean
+        +managePayment() boolean
+    }
 
-class Member{
-+viewOrderHistory()
-}
+    class Admin {
+        -int adminId
+        -int userId
+        -string role
+        +manageStaff() boolean
+        +viewReport() boolean
+    }
 
-class Staff{
-+manageProduct()
-+manageOrder()
-+manageMember()
-+managePayment()
-}
+    class Member {
+        -int memberId
+        +viewOrderHistory() List~Order~
+    }
 
-class Admin{
-+manageStaff()
-+viewReport()
-}
+    class Address {
+        -int addrId
+        -int userId
+        -string recipientName
+        -string phone
+        -string addrLine1
+        -string city
+        -string province
+        -string postalCode
+        -boolean isDefault
+        +getAllAddr() boolean
+        +addAddr() boolean
+        +updateAddr(addrId) boolean
+        +deleteAddr(addrId) boolean
+    }
 
-class Address{
-+int addressId
-+string recipientName
-+string phone
-}
+    class Cart {
+        -int cartId
+        -int userId
+        -datetime createdAt
+        +addItem(productId, qty) boolean
+        +updateItem(productId, qty) boolean
+        +removeItem(productId) boolean
+        +clearItem() boolean
+        +getTotal() decimal
+    }
 
-class Category{
-+int categoryId
-+string categoryName
-}
+    class CartItem {
+        -int cartItemId
+        -int cartId
+        -int productId
+        -int quantity
+        -decimal price
+        +getSubtotal() decimal
+    }
 
-class Product{
-+int productId
-+string productName
-+decimal price
-+int stock
-}
+    class Category {
+        -int categoryId
+        -string categoryName
+        -string description
+        -int parentId
+        +getSubCategory() List~Category~
+    }
 
-class Inventory{
-+int inventoryId
-+int quantity
-}
+    class Product {
+        -int productId
+        -int categoryId
+        -string productName
+        -string description
+        -string color
+        -decimal price
+        -string imgUrl
+        -string status
+        -datetime createdAt
+        -datetime updatedAt
+        +getDetail(productId) Product
+        +updateStock(qty) boolean
+    }
 
-class Cart{
-+int cartId
-+addItem()
-+removeItem()
-+clear()
-}
+    class Inventory {
+        -int inventoryId
+        -int productId
+        -int stockQty
+        -int reservedQty
+        +getAvailbleStock() int
+        +increaseStock(qty) boolean
+        +decreaseStock(qty) boolean
+    }
 
-class CartItem{
-+int quantity
-+decimal price
-}
+    class Order {
+        -int orderId
+        -int userId
+        -datetime orderDate
+        -float totalAmount
+        -string shippingAddrId
+        -bool paymentStatus
+        -string status
+        +calculateTotal() decimal
+        +changeStatus(status) boolean
+        +cancelOrder() boolean
+    }
 
-class Order{
-+int orderId
-+decimal totalAmount
-+string status
-+calculateTotal()
-+cancelOrder()
-}
+    class OrderItem {
+        -int orderItemId
+        -int orderId
+        -int productId
+        -string productName
+        -decimal price
+        -int quantity
+        -decimal subtotal
+        +getSubtotal() decimal
+    }
 
-class OrderItem{
-+int quantity
-+decimal subtotal
-}
+    class Payment {
+        -int paymentId
+        -int orderId
+        -string paymentMethod
+        -decimal amount
+        -string transactionRef
+        -datetime paidAt
+        -string status
+        +processPayment() boolean
+    }
 
-class Payment{
-+int paymentId
-+string paymentMethod
-+decimal amount
-+processPayment()
-}
+    %% Inheritance / Generalization
+    User <|-- Staff
+    User <|-- Admin
+    User <|-- Member
+    Staff <|-- Admin
 
-User <|-- Member
-User <|-- Staff
-Staff <|-- Admin
-
-User "1" --> "1..*" Address
-Category "1" --> "*" Product
-Product "1" --> "1" Inventory
-
-Member "1" --> "0..1" Cart
-Cart "1" --> "1..*" CartItem
-
-CartItem "*" --> "1" Product
-
-Member "1" --> "*" Order
-Order "1" --> "1..*" OrderItem
-OrderItem "*" --> "1" Product
-
-Order "1" --> "1" Payment
-Order --> Address
+    %% Relationships & Multiplicities
+    Staff "1" -- "0..1" Cart : manage
+    User "1" -- "1..*" Address
+    User "1" -- "0..1" Cart
+    Member "1" -- "0..*" Order
+    Address "1" -- "0..*" Order
+    Cart "1" -- "1..*" CartItem
+    CartItem "1" -- "1" Order
+    Category "1" -- "0..*" Category
+    Category "1" -- "0..*" Product
+    Product "1" -- "1" Inventory
+    Order "1" -- "1..*" OrderItem
+    Product "1" -- "0..*" OrderItem
+    Order "1" -- "1" Payment
 ```
 
 ### Sequence Diagram
