@@ -116,6 +116,23 @@
 
 ---
 
+## 👤 Persona Design
+### Customer Persona
+
+<img width="1000" height="600" alt="Customer" src="https://github.com/user-attachments/assets/270a78a2-c3c2-4490-b030-53b2054aca02" />
+
+### 2️⃣ พนักงาน (Staff)
+### Staff Persona
+<img width="1000" height="600" alt="Staff" src="https://github.com/user-attachments/assets/ab486baf-5f54-4512-bd72-3938c0cae83f" />
+
+
+### 3️⃣ ผู้ดูแลระบบ (Admin)
+### Admin Persona
+
+<img width="1000" height="600" alt="Admin" src="https://github.com/user-attachments/assets/52bb70e5-573b-4516-9bf8-26b5dde2bb9b" />
+
+---
+
 ## 📊 Diagram
 
 ### Use Case Diagram
